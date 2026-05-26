@@ -1,5 +1,45 @@
+# Python
+venv/
 __pycache__/
-data/
-report.html
-models/tinyphysics_*.onnx
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Editor / IDE
+.claude/
+.vscode/
+.idea/
 *.swp
+.DS_Store
+
+# Comma.ai dataset (download separately via the README's command)
+data/
+
+# Large surrogate training data — regenerable via gen_surrogate_data.py
+surrogate_data.npz
+surrogate_data_v2.npz
+surrogate_smoke.npz
+
+# Intermediate progress / log files
+blend_progress.tsv
+blend2_progress.tsv
+multi_restart_progress.tsv
+ensemble_progress.tsv
+lqr_progress.tsv
+surrogate_ls_progress.tsv
+
+# Per-controller CSVs from eval_seq.py
+eval_after_blend.csv
+eval_cem_playback.csv
+eval_safe_*.csv
+
+# Temporary controllers used by tuning scripts
+controllers/_tune_tmp.py
+controllers/temp_eval.py
+controllers/temp_optimized.py
+controllers/best_v2.py
+
+# Other clutter from upstream .gitignore
+models/tinyphysics_*.onnx
