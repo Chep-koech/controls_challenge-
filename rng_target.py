@@ -7,7 +7,7 @@ The TinyPhysics simulator seeds numpy at reset via
 After that, every np.random.choice is deterministic. So the "random"
 number `r_t` that picks the sample bin at step t is a fixed function of t
 (given the path). The only thing we can control is the *softmax
-distribution* via the action — which shifts which bin r_t lands on.
+distribution* via the action, which shifts which bin r_t lands on.
 
 Algorithm per step
 ------------------
@@ -23,7 +23,7 @@ Algorithm per step
    advance (this consumes one true RNG draw, leaving the state aligned
    for step t+1).
 
-This exploits the simulator's determinism — something all our previous
+This exploits the simulator's determinism, something all our previous
 optimisers (ILC, CEM, surrogate, LQR) ignored.
 """
 from __future__ import annotations

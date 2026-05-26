@@ -1,4 +1,4 @@
-"""Sequential evaluation — no multiprocessing.
+"""Sequential evaluation, no multiprocessing.
 
 Slower (~40 min for 5000 segs single controller) but reliable on this
 Windows system where multiprocessing has been crashing.

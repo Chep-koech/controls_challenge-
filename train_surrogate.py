@@ -72,7 +72,7 @@ class TrajData(Dataset):
         return (
             torch.from_numpy(feats),                  # (TRAJ_LEN, 5)
             torch.from_numpy(target_traj),            # (400,)
-            torch.from_numpy(pre_lat),                # (100,) — context conditioning
+            torch.from_numpy(pre_lat),                # (100,), context conditioning
             torch.tensor(self.costs[idx], dtype=torch.float32),
         )
 

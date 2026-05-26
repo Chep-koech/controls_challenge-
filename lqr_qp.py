@@ -144,7 +144,7 @@ def lqr_solve_segment(data, arx, ilc_actions, ridge_u=1e-5, anchor_weight=200.0)
     # Define vector y of length H where y[i] = a_y[CONTROL_START + 1 + i] (so i=0..H-1
     # covers steps CONTROL_START+1 .. CONTROL_START+H). Note this leaves out a_y at
     # step CONTROL_START itself, which is determined by initial conditions and isn't
-    # affected by u — we treat its cost as a constant offset.
+    # affected by u, we treat its cost as a constant offset.
     # cost window indices in the global trajectory:
     a_y_free_window = a_y_free[CONTROL_START_IDX + 1 : COST_END_IDX]   # length H-? actually H is 400, indices CSI+1..COST_END-1 has length 399.
     if len(a_y_free_window) < H:

@@ -1,11 +1,11 @@
-"""RNG-aware per-step bin targeting — v2 using REAL simulator.
+"""RNG-aware per-step bin targeting, v2 using REAL simulator.
 
 Wraps TinyPhysicsSimulator directly. At each control step, save the
 sim's full state (RNG + histories + step_idx), try N candidate actions,
 restore state between candidates, pick the best, commit.
 
 The real simulator's code paths are used for every model evaluation, so
-there's zero impedance mismatch — no chance of a hand-rolled sim bug.
+there's zero impedance mismatch, no chance of a hand-rolled sim bug.
 """
 from __future__ import annotations
 
@@ -82,7 +82,7 @@ def optimize_segment_rng(sim_model, csv_path, init_actions,
     T = len(sim.data)
 
     # Run pre-control phase first (steps CONTEXT_LENGTH..CONTROL_START_IDX-1)
-    # — controller output is overridden by dataset, so we don't optimize.
+    #, controller output is overridden by dataset, so we don't optimize.
     while sim.step_idx < CONTROL_START_IDX:
         sim.step()
 

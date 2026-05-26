@@ -2,7 +2,7 @@
 
 The ONNX simulator emits a softmax over 1024 lat-accel bins. The original
 simulator samples from this distribution (stochastic). For optimisation we
-use the *expected* lat-accel under the softmax — this is fully
+use the *expected* lat-accel under the softmax, this is fully
 differentiable in the action sequence and removes sampling noise, while
 matching the stochastic simulator in expectation.
 
@@ -185,7 +185,7 @@ def differentiable_rollout(
             _ = int(np.random.choice(VOCAB_SIZE, p=probs_np))
 
         if in_control:
-            # Use the soft (expected) value in forward AND gradient — this
+            # Use the soft (expected) value in forward AND gradient, this
             # makes Adam steps actually change the trajectory.
             prev = lataccel_hist[step - 1]
             pred = torch.clamp(soft_pred, prev - MAX_ACC_DELTA, prev + MAX_ACC_DELTA)

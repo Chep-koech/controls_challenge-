@@ -33,7 +33,7 @@ TRAJ_LEN = 580  # we keep state for [0, TRAJ_LEN) - segments are ~580 long
 
 def _smooth_noise(n_samples, n_action, noise_std, rng):
     """Generate smooth Gaussian noise via low-pass filter (so perturbations
-    aren't pure white noise — closer to actions that real optimizers would
+    aren't pure white noise, closer to actions that real optimizers would
     propose)."""
     raw = rng.normal(0, 1, size=(n_samples, n_action))
     # 5-tap moving average for smoothness
@@ -59,7 +59,7 @@ def _gen_one_segment(args):
     a_ego = df["aEgo"].values.astype(np.float32)
     target = df["targetLateralAcceleration"].values.astype(np.float32)
     steer = (-df["steerCommand"].values).astype(np.float32)  # sign flipped like sim does
-    steer = np.nan_to_num(steer, nan=0.0)  # NaN for control window — irrelevant (we overwrite)
+    steer = np.nan_to_num(steer, nan=0.0)  # NaN for control window, irrelevant (we overwrite)
     T = len(df)
 
     # Set up sim model once per process (avoid per-call ONNX init)

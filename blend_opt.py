@@ -5,7 +5,7 @@ each of several baseline controllers' in-loop actions at multiple
 mixing weights. Keep whichever blend gives the lowest real cost.
 
 Often a 30-70% blend of an aggressive optimizer and a conservative PID
-beats either alone — particularly on hard segments where pure ILC
+beats either alone, particularly on hard segments where pure ILC
 overcorrects.
 """
 from __future__ import annotations

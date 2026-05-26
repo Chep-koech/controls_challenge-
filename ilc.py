@@ -13,7 +13,7 @@ structure of the problem. Each iter is a single rollout:
 The simulator's per-step gain ∂pred/∂action is positive and roughly constant
 (steer → lat-accel), so this is a stable fixed-point iteration. With a
 modest learning rate and error smoothing, ILC converges to a good local
-optimum in ~10-20 rollouts — orders of magnitude cheaper than CEM.
+optimum in ~10-20 rollouts, orders of magnitude cheaper than CEM.
 
 Compute budget: 2 rollouts per iter (one for trajectory, one to verify
 improvement) × ~12 iters = ~24 rollouts per segment, vs CEM's ~480.

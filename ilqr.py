@@ -66,7 +66,7 @@ def rollout_with_grad(model, data, actions_np, seed, temperature=0.8):
 
     Returns:
         lataccel_hist: np.ndarray (T,)
-        sensitivities: np.ndarray (ACTION_HORIZON,) — g_t for each t
+        sensitivities: np.ndarray (ACTION_HORIZON,), g_t for each t
         cost dict
     """
     np.random.seed(seed)

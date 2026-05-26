@@ -5,7 +5,7 @@ in-loop) and the current cached action sequence. Save whichever gives
 the lowest real-sim total_cost.
 
 This catches cases where our "optimized" actions are actually worse than
-what a simple controller (e.g. plain PID) would produce — which we
+what a simple controller (e.g. plain PID) would produce, which we
 discovered happens for at least some high-cost segments.
 """
 from __future__ import annotations
@@ -128,7 +128,7 @@ def main():
     files = sorted(Path(args.data_path).iterdir())[:args.num_segs]
 
     # Reorder files: process highest-cost segments first so we capture the
-    # big wins early — useful for incremental progress monitoring.
+    # big wins early, useful for incremental progress monitoring.
     ranked = []
     for f in files:
         npz = Path(args.opt_actions) / f"{f.stem}.npz"
