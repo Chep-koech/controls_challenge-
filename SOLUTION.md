@@ -45,7 +45,7 @@ per segment.
 | 3 | `surrogate_ls_safe.py`: Adam through a trained TCN surrogate + real-sim line search (partial; 1125 segs) | 56.98 |
 | 4 | `controller_ensemble.py`: replace cached with the best of {pid, best, enhanced_pid, tdof, preview, lqr, adaptive, mpc_simple} run in-loop, where it scores lower | ~54.8 |
 | 5 | `blend_opt.py`: for each segment try `α · cached + (1−α) · baseline_controller_actions` at 11 weights for 4 controllers, keep best | **49.94** |
-| 6 | `blend_opt.py` again with 21 weights × 8 controllers on the worst 1010 segments | **48.46** ✅ |
+| 6 | `blend_opt.py` again with 21 weights × 8 controllers on the worst 1010 segments | **48.46** [PASS] |
 
 The **blend** step (5 and 6) was the breakthrough that pushed the score
 under 50: on many of the high-cost segments, our heavily-optimised

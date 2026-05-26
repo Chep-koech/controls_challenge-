@@ -75,14 +75,14 @@ for ctrl_name, ctrl_display in controllers:
                 'elapsed_time': elapsed
             }
 
-            print(f"✓ {ctrl_display}: {test_score:.2f} (baseline: {baseline_score:.2f}, ratio: {test_score/baseline_score:.2f}x)")
+            print(f"[OK] {ctrl_display}: {test_score:.2f} (baseline: {baseline_score:.2f}, ratio: {test_score/baseline_score:.2f}x)")
         else:
             results[ctrl_name] = {
                 'display_name': ctrl_display,
                 'status': 'FAILED',
                 'error': 'Could not parse results'
             }
-            print(f"✗ {ctrl_display}: Could not parse results")
+            print(f"[FAIL] {ctrl_display}: Could not parse results")
 
     except Exception as e:
         results[ctrl_name] = {
@@ -90,7 +90,7 @@ for ctrl_name, ctrl_display in controllers:
             'status': 'FAILED',
             'error': str(e)
         }
-        print(f"✗ {ctrl_display}: {str(e)}")
+        print(f"[FAIL] {ctrl_display}: {str(e)}")
 
     print(f"Time: {elapsed:.1f}s")
     print()
